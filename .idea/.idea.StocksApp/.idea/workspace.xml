@@ -5,6 +5,9 @@
     <projectFile profileName="http">StocksApp/StocksApp.csproj</projectFile>
     <projectFile profileName="https">StocksApp/StocksApp.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e7393140-fbfc-4686-8891-8c06fc8baf60" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,9 +15,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2bAlqn0gp6fuSI1uaBAKNH7SkSb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,8 +25,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.StocksApp: http.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   },
@@ -91,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705665957454</updated>
       <workItem from="1705665959562" duration="60000" />
+      <workItem from="1705756736013" duration="652000" />
     </task>
     <servers />
   </component>

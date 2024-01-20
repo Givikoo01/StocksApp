@@ -23,7 +23,7 @@ namespace StocksApp.Controllers
         public IActionResult Index()
         {
             if (string.IsNullOrEmpty(_tradingOptions.DefaultStockSymbol))
-                _tradingOptions.DefaultStockSymbol = "AAPL";
+                _tradingOptions.DefaultStockSymbol = "MSFT";
 
             Dictionary<string, object>? companyProfileDictionary = _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
             Dictionary<string, object>? stockQuoteDictionary = _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
