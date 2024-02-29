@@ -1,6 +1,7 @@
 using Services;
 using ServiceContracts;
 using StocksApp;
+using System.Security.Cryptography;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
