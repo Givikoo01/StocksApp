@@ -12,30 +12,44 @@ namespace StocksApp.Controllers
         private readonly IStocksService _stocksService;
         private readonly IConfiguration _configuration;
 
-        public TradeController(IOptions<TradingOptions> tradingOptions, IFinnhubService finnhubService, IStocksService stocksService, IConfiguration configuration)
+        public TradeController(IOptions<TradingOptions> tradingOptions, IFinnhubService finnhubService,
+            IStocksService stocksService, IConfiguration configuration)
         {
             _tradingOptions = tradingOptions.Value;
             _finnhubService = finnhubService;
             _stocksService = stocksService;
             _configuration = configuration;
         }
+
         [Route("/")]
         public IActionResult Index()
         {
             if (string.IsNullOrEmpty(_tradingOptions.DefaultStockSymbol))
                 _tradingOptions.DefaultStockSymbol = "MSFT";
 
-            Dictionary<string, object>? companyProfileDictionary = _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
-            Dictionary<string, object>? stockQuoteDictionary = _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? companyProfileDictionary =
+                _finnhubService.GetCompanyProfile(_tradingOptions.DefaultStockSymbol);
+            Dictionary<string, object>? stockQuoteDictionary =
+                _finnhubService.GetStockPriceQuote(_tradingOptions.DefaultStockSymbol);
 
             StockTrade stockTrade = new StockTrade() { StockSymbol = _tradingOptions.DefaultStockSymbol };
 
             if (companyProfileDictionary != null && stockQuoteDictionary != null)
             {
-                stockTrade = new StockTrade() { StockSymbol = Convert.ToString(companyProfileDictionary["ticker"]), StockName = Convert.ToString(companyProfileDictionary["name"]) };
+                stockTrade = new StockTrade()
+                {
+                    StockSymbol = Convert.ToString(companyProfileDictionary["ticker"]),
+                    StockName = Convert.ToString(companyProfileDictionary["name"])
+                };
             }
+
             ViewBag.FinnhubToken = _configuration["FinnhubToken"];
             return View(stockTrade);
         }
-    }
+
+        public IActionResult Orders()
+        {
+            return View();
+        }
+}
 }
